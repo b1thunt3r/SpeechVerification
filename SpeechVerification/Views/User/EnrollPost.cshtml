@@ -1,0 +1,26 @@
+﻿@model IDictionary<String, String>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Status</h1>
+
+<p>
+    @if (Model.Any())
+    {
+    <table>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Key</td>
+            <td><pre>@item.Value</pre></td>
+        </tr>
+        }
+    </table>
+    }
+    else
+    {
+        <text>No Errors</text>
+    }
+</p>

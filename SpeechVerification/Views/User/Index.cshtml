@@ -1,0 +1,79 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<p>
+    @if (Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Actions
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Username</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                @Html.ActionLink("Enroll", "Enroll", "User", new { id = item.ProfileId }, new { @class = "btn btn-primary" })
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#info@(item.ProfileId)">
+                                    Details
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade bd-example-modal-lg" id="info@(item.ProfileId)" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">@item.Username</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <pre>
+@item.ProfileJson
+</pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.ActionLink("Reset Enrollment", "Reset", "User", new { id = item.ProfileId }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("Delete", "Delete", "User", new { id = item.ProfileId }, new { @class = "btn btn-danger" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            Create a new user!
+        </div>
+    }
+</p>
+
+<form asp-controller="User" asp-action="Create" method="post">
+    <h4>Create user</h4>
+    <div class="input-group">
+        <input type="email" class="form-control" name="email" placeholder="Email">
+        <input type="text" class="form-control" name="username" placeholder="Username">
+        <div class="input-group-prepend" id="button-addon3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<String>
+@{
+    ViewData["Title"] = "Phrases";
+}
+
+<h1>Verification training phrases</h1>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>

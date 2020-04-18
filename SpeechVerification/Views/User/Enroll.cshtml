@@ -1,0 +1,44 @@
+﻿@model EnrollViewModel
+
+@{
+    ViewData["Title"] = "Enroll User";
+
+    var audioRecorrderViewModel = new AudioRecorderViewModel
+    {
+        PostUrl = Url.Action("EnrollPost", "User"),
+        ButtonText = "Enroll"
+    };
+}
+
+<h1>Enroll User</h1>
+
+<input type="hidden" id="user" value="@Model.User.ProfileId" />
+<partial name="_AudioRecorder" model="audioRecorrderViewModel" />
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            &nbsp;
+        </div>
+        <div class="col-md-auto">
+            <h4>Verification training phrases</h4>
+            <div class="alert alert-info" role="alert">
+                <strong>Note:</strong> Choose of phrase from the list below, remeber it. That will be your password.
+            </div>
+
+            <ol>
+                @foreach (var item in Model.Pharases)
+                {
+                    <li>@item</li>
+                }
+            </ol>
+        </div>
+        <div class="col col-lg-2">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/index.js"></script>
+}

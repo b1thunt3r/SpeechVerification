@@ -1,0 +1,25 @@
+﻿@model AudioRecorderViewModel
+
+<div class="text-center">
+    <button id="action" class="btn btn-primary" data-url="@Model.PostUrl" onclick="handleAction()"><img src="https://img.icons8.com/material/24/ffffff/microphone--v1.png" /> @Model.ButtonText</button>
+</div>
+
+<div class="modal fade" id="resultModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="resultModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Speech Verification</h5>
+                <button type="button" id="modalClose" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="progress" style="width: 250px; margin: 0.5em auto;">
+                    <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="height: 100%"></div>
+                </div>
+                <div id="spinner" class="spinner-grow" style="display: none; margin: auto;" role="status"><span class="sr-only">Loading...</span></div>
+                <div id="message" class="hide" style="display: none;">...</div>
+            </div>
+        </div>
+    </div>
+</div>

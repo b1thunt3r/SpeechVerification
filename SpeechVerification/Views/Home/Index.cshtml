@@ -1,0 +1,32 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    var audioRecorrderViewModel = new AudioRecorderViewModel
+    {
+        PostUrl = Url.Action("Upload", "Home"),
+        ButtonText = "Authenticate"
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="form-group">
+        <select id="user">
+            <option>Select a User</option>
+            @foreach (var item in Model)
+            {
+                <option value="@item.ProfileId">@item.Username (@item.Email)</option>
+            }
+        </select>
+    </div>
+
+    <partial name="_AudioRecorder" model="audioRecorrderViewModel" />
+
+    @section Scripts {
+        <script type="text/javascript" src="~/js/index.js"></script>
+    }
+</div>
