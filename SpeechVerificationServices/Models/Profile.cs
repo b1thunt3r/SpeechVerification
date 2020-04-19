@@ -23,7 +23,7 @@ namespace SpeechVerificationServcies.Models
         [JsonPropertyName("lastActionDateTime")]
         public DateTime LastActionDateTime { get; set; }
 
-        [JsonPropertyName("EnrollmentStatus")]
+        [JsonPropertyName("enrollmentStatus")]
         public String EnrollmentStatus { get; set; }
     }
 }
