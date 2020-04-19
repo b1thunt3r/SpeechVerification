@@ -24,7 +24,7 @@ namespace SpeechVerification.Controllers
 
         public IActionResult Index()
         {
-            var users = _dbContext.ExtUsers.AsEnumerable().OrderBy(user => user.Username);
+            var users = _dbContext.ExtUsers.OrderBy(user => user.Username).AsEnumerable();
 
             return View(users);
         }
