@@ -14,6 +14,7 @@ Speaker Recognition in Azure is still in preview. There might be changes to the 
 - Free [Speaker Recognition (preview)](https://azure.microsoft.com/en-us/services/cognitive-services/speaker-recognition/) account
 - [.NET Core](https://dotnet.microsoft.com/) 2.1+ _created on .NET Core 3.1 preview_
 - [`ffmpeg`](https://www.ffmpeg.org/)
+- [User Secrets](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets)
 
 ## Structure
 
