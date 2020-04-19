@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-SpeechVerification-C97EE2D7-D647-4BD3-836E-234A62253781</UserSecretsId>
+    <UserSecretsId>0ba9a04d-c6de-4456-b064-b20c3da89287</UserSecretsId>
   </PropertyGroup>
 
 

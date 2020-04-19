@@ -11,13 +11,13 @@ namespace SpeechVerificationServcies
         private readonly HttpClient _client = new HttpClient();
         private static readonly String _apiPrefix = "/spid/v1.0";
 
-        public ApiClient()
+        public ApiClient(String speechApiKey)
         {
             _client.BaseAddress = new Uri("https://westus.api.cognitive.microsoft.com/");
 
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "d5ab7482a58a44a0be6d8b04d9e5816c"); //replace with something
+            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", speechApiKey);
 
             _client.DefaultRequestHeaders.UserAgent.Clear();
             _client.DefaultRequestHeaders.UserAgent.ParseAdd("Super Secret Authenticaton Client 1.0");
