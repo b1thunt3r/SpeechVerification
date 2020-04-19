@@ -29,3 +29,16 @@ This project is an example implementation of `SpeechVerificationServices` in an 
 SpeechVerification uses `MediaStream API` to record sound bits from a browser and `ffmpeg` to convert the sound file to 16-bit 16K mono PCM (as required by `Speaker Recognition API`).
 
 In this project, I have left out integrating with authentication and identity of ASP.NET Core.
+
+#### User Secrets
+
+In .NET Core you can save and access the secretes (i.e. API keys) in a secure manner. It also prevents you from pushing the keys to a repository.
+
+**NOTE:** By mistake, I did manage to push my API key to the GitHub. The key in question has been invalidated and new key resides in User Secrets.
+
+To add your own key to the User Secrets:
+
+```bash
+dotnet user-secrets set "SpeechRecognitionAPI:ServiceApiKey" "<YOUR-API-KEY>" 
+```
+Make sure your working directory is `SpeechVerification` project directory, before you add the key to the user secrets store.
